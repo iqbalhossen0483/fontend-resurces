@@ -1,32 +1,19 @@
-import "./App.css";
-import SideBar from "./components/Sidebar/SideBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
-import Dashboard from "./pages/Dashboard";
-import Users from "./pages/Users";
-import Messages from "./pages/Messages";
-import FileManager from "./pages/FileManager";
-import Analytics from "./pages/Analytics";
-import Order from "./pages/Order";
-import Saved from "./pages/Saved";
-import Setting from "./pages/Setting";
+import "./App.css";
+import Login from "./Login";
+import Layout from "./Layout";
+import TextEditor from "./TextEditor";
 function App() {
   return (
     <Router>
-      <SideBar>
+      <Layout>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/messages" element={<Messages />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/file-manager" element={<FileManager />} />
-          <Route path="/order" element={<Order />} />
-          <Route path="/saved" element={<Saved />} />
-          <Route path="/settings" element={<Setting />} />
-
-          <Route path="*" element={<> not found</>} />
+          <Route path='/' element={<>home page</>} />
+          <Route path='/user' element={<Login />} />
+          <Route path='/editor' element={<TextEditor />} />
+          <Route path='*' element={<> not found</>} />
         </Routes>
-      </SideBar>
+      </Layout>
     </Router>
   );
 }
