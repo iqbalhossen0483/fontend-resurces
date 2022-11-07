@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { Markup } from "interweave";
 import JoditEditor from "jodit-react";
 const confiq = {
   buttons: [
@@ -19,6 +20,7 @@ const confiq = {
 const TextEditor = () => {
   const editor = useRef(null);
   const [content, setContent] = useState("");
+  const [value, setValue] = useState("");
 
   return (
     <div>
@@ -29,6 +31,13 @@ const TextEditor = () => {
         tabIndex={1}
         onBlur={(newContent) => setContent(newContent)}
       />
+
+      <button onClick={() => setValue(editor.current?.value)}>
+        see result
+      </button>
+      <div>
+        <Markup content={value} />
+      </div>
     </div>
   );
 };
