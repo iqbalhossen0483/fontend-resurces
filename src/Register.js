@@ -1,6 +1,6 @@
 import React from "react";
 
-const Login = () => {
+const Register = () => {
   return (
     <section class='h-screen'>
       <div class='container px-6 py-12 h-full'>
@@ -16,36 +16,23 @@ const Login = () => {
             <form>
               {/* <!-- Email input --> */}
               <div class='mb-6'>
-                <input
-                  type='text'
-                  class='form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
-                  placeholder='Email address'
-                />
+                <input type='text' placeholder='Your full name' />
+              </div>
+              <div class='mb-6'>
+                <input type='text' placeholder='Email address' />
               </div>
 
               {/* <!-- Password input --> */}
               <div class='mb-6'>
-                <input
-                  type='password'
-                  class='form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
-                  placeholder='Password'
-                />
+                <input type='password' placeholder='Password' />
               </div>
 
               <div class='flex justify-between items-center mb-6'>
                 <div class='form-group form-check'>
                   <input type='checkbox' id='exampleCheck2' />
-                  <label
-                    class='form-check-label inline-block text-gray-800'
-                    for='exampleCheck2'
-                  >
-                    Remember me
-                  </label>
+                  <label for='exampleCheck2'>Remember me</label>
                 </div>
-                <a
-                  href='#!'
-                  class='text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out'
-                >
+                <a href='#!' class='text-blue-600 hover:text-blue-700'>
                   Forgot password?
                 </a>
               </div>
@@ -116,4 +103,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

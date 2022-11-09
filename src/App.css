@@ -5,7 +5,7 @@
 @layer components {
   .sidebar {
     @apply bg-[#1d2939] text-white h-screen overflow-y-auto
-    fixed top-0 bottom-0 left-0 overflow-x-hidden;
+    fixed top-0 bottom-0 left-0 overflow-x-hidden z-50;
   }
   .sidebar .top_section {
     @apply flex items-center justify-between px-3 py-4 bg-white

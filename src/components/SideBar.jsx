@@ -11,13 +11,18 @@ const routes = [
     icon: <FaHome />,
   },
   {
-    path: "/user",
-    name: "User",
+    path: "/login",
+    name: "Login",
     icon: <FaUser />,
     subRoutes: [
       {
-        path: "/user",
+        path: "/login",
         name: "Login ",
+        icon: <FaLock />,
+      },
+      {
+        path: "/register",
+        name: "Register ",
         icon: <FaLock />,
       },
     ],
