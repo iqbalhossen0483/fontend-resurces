@@ -5,6 +5,7 @@ import Layout from "./Layout";
 import TextEditor from "./TextEditor";
 import Register from "./Register";
 import { useEffect } from "react";
+import Home from "./components/Home";
 function App() {
   useEffect(() => {
     let link = document.querySelector("link[rel~='icon']");
@@ -20,7 +21,7 @@ function App() {
     <Router>
       <Layout>
         <Routes>
-          <Route path='/' element={<div>home</div>} />
+          <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/editor' element={<TextEditor />} />
