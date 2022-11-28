@@ -1,6 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Login = () => {
+  const [token, setToken] = useState("");
+  
+  //manage user sessiton and cookies in browser;
+  useEffect(() => {
+    // transfers sessionStorage from one tab to another
+    const manageUserSession = function (event) {
+      if (!event) {
+        event = window.event;
+      } // ie suq
+      if (!event.newValue) return; // do nothing if no value to work with
+      if (event.key == "getSessionStorage") {
+        // another tab asked for the sessionStorage -> send it
+        localStorage.setItem("sessionStorage", JSON.stringify(sessionStorage));
+        // the other tab should now have it, so we're done with it.
+        localStorage.removeItem("sessionStorage"); // <- could do short timeout as well.
+      } else if (event.key == "sessionStorage" && !sessionStorage.length) {
+        // another tab sent data <- get it
+        const data = JSON.parse(event.newValue);
+        for (const key in data) {
+          sessionStorage.setItem(key, data[key]);
+        }
+        if (data.token) setToken(data.token);
+      }
+    };
+    // listen for changes to localStorage
+    if (window.addEventListener) {
+      window.addEventListener("storage", manageUserSession, false);
+    } else {
+      window.attachEvent("onstorage", manageUserSession);
+    }
+
+    // Ask other tabs for session storage (this is ONLY to trigger event)
+    if (!sessionStorage.length) {
+      localStorage.setItem("getSessionStorage", "token");
+      localStorage.removeItem("getSessionStorage", "token");
+    }
+    return () => {
+      window.removeEventListener("storage", manageUserSession);
+    };
+  }, []);
+  
   return (
     <section class='h-screen'>
       <div class='container px-6 py-12 h-full'>
